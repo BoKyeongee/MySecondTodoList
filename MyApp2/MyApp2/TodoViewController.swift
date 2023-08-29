@@ -13,6 +13,7 @@ let data = Data.shared
 
 class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -20,9 +21,12 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         view.addSubview(tableView)
         
+        // header of footer 등록
+        tableView.register(CustomHeaderView.self, forHeaderFooterViewReuseIdentifier: "customHeader")
+        
         // Userdefaults 기본값 세팅
-        let defaultSettings = ["todo": data.todo, "todoDone": data.todoDone, "routine": data.routine, "routineDone": data.routineDone] as [String : Any]
-        defaults.register(defaults: defaultSettings)
+//        let defaultSettings = ["todo": data.todo, "todoDone": data.todoDone, "routine": data.routine, "routineDone": data.routineDone] as [String : Any]
+//        defaults.register(defaults: defaultSettings)
         
         // 테이블뷰 delegate
         tableView.delegate = self
@@ -32,12 +36,24 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // section 개수 반환
     func numberOfSections(in tableView: UITableView) -> Int {2}
     
-    // section header title
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionTitles = ["오늘 할 일", "루틴"]
-        
-       return sectionTitles[section]
-    }
+    // section header 반환
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+           let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "customHeader")
+           
+//           header?.textLabel?.text = list[section].title
+           //header?.textLabel?.textAlignment = .center
+           //header?.textLabel?.textColor = .systemBlue
+           //header?.backgroundColor = .black
+           
+           return header
+       }
+    
+//    // section header title
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        let sectionTitles = ["오늘 할 일", "루틴"]
+//
+//       return sectionTitles[section]
+//    }
 
     // section header 높이 설정
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -53,7 +69,9 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // cell 행 수 반환
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0 : return getArray("todo")?.count ?? data.todo.count
+        case 0 :
+            print(getArray("todo")?.count)
+            return getArray("todo")?.count ?? data.todo.count
         case 1 : return getArray("routine")?.count ?? data.routine.count
         default: return 1
         }
@@ -67,6 +85,8 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let todo = getArray("todo") ?? data.todo
             if todo.isEmpty != true {
                 cell.todo.text = todo[indexPath.row] as? String
+                print(todo[indexPath.row])
+                print(indexPath.row)
             }
             else if todo.isEmpty == true {
                 cell.todo.text = "오늘 할 일을 다 하셨어요!🔥"
@@ -102,7 +122,6 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let array = defaults.array(forKey: forKey)
         return array
     }
-    
     
 }
 extension String {

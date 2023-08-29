@@ -18,6 +18,7 @@
 		DC9FA5202A96DFAC00E4CDA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DC9FA51F2A96DFAC00E4CDA4 /* Alamofire */; };
 		DC9FA5232A96E11400E4CDA4 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = DC9FA5222A96E11400E4CDA4 /* AlamofireImage */; };
 		DC9FA5252A98766D00E4CDA4 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9FA5242A98766D00E4CDA4 /* Data.swift */; };
+		DCD4F58F2A9DE0950027B9A7 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F58E2A9DE0950027B9A7 /* CustomHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		C018A5F62A7B99810005939A /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		DC78816B2A8515AD00FAFBD8 /* TodoViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewControllerCell.swift; sourceTree = "<group>"; };
 		DC9FA5242A98766D00E4CDA4 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		DCD4F58E2A9DE0950027B9A7 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				C018A5F62A7B99810005939A /* TodoViewController.swift */,
 				DC78816B2A8515AD00FAFBD8 /* TodoViewControllerCell.swift */,
 				DC9FA5242A98766D00E4CDA4 /* Data.swift */,
+				DCD4F58E2A9DE0950027B9A7 /* CustomHeaderView.swift */,
 			);
 			path = MyApp2;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C018A5F72A7B99810005939A /* TodoViewController.swift in Sources */,
+				DCD4F58F2A9DE0950027B9A7 /* CustomHeaderView.swift in Sources */,
 				DC9FA5252A98766D00E4CDA4 /* Data.swift in Sources */,
 				C018A5CB2A7B8EFA0005939A /* ViewController.swift in Sources */,
 				DC78816C2A8515AD00FAFBD8 /* TodoViewControllerCell.swift in Sources */,

@@ -12,9 +12,7 @@ class Data {
 
     private init() {}
     
-    var todo = ["고양이 빗질하기", "고양이 밥 주기", "책상 정리하기"]
-    var todoDone = ["병원 다녀오기"]
+    var array1: [String] = ["밥 주기", "물 주기", "똥간 치워주기"]
+    var todoData: [String:[String]] = [:]
     
-    var routine = ["30분씩 운동하기", "TIL 작성하기"]
-    var routineDone = ["거북목 교정 운동"]
 }
