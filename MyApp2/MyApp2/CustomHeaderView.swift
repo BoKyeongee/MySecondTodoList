@@ -8,15 +8,16 @@
 import UIKit
 
 class CustomHeaderView: UITableViewHeaderFooterView {
-
-    @IBOutlet weak var addBtn: UIButton!
-    @IBOutlet weak var categoryLabel: UILabel!
+    
+    //그냥 애플문서보고 코드로 적어보자
+//
+//    @IBOutlet weak var addBtn: UIButton!
+//    @IBOutlet weak var categoryLabel: UILabel!
+    
     
     override func awakeFromNib() {
            super.awakeFromNib()
-//           title.text = "123"
-//           title.layer.cornerRadius = 20
-//           title.clipToBounds = true
+            
     }
 
 }

@@ -148,23 +148,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" restorationIdentifier="customHeader" id="Lub-WA-wMO">
+                                <view key="tableHeaderView" contentMode="scaleToFill" restorationIdentifier="customHeader" id="Lub-WA-wMO" customClass="CustomHeaderView" customModule="MyApp2" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvK-HD-a5D">
+                                            <rect key="frame" x="23" y="16" width="320" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WL0-eP-9Gx">
                                             <rect key="frame" x="351" y="11" width="34" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="gray" image="plus" catalog="system" title="" cornerStyle="capsule"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvK-HD-a5D">
-                                            <rect key="frame" x="24" y="16" width="70" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <accessibility key="accessibilityConfiguration" identifier="customHeader">
@@ -212,14 +212,9 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6fI-wJ-aoo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="addBtn" destination="WL0-eP-9Gx" id="OCm-ry-eQr"/>
-                            <outlet property="categoryLabel" destination="MvK-HD-a5D" id="XF9-OB-CjO"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="할 일" image="tray.full" catalog="system" id="K1c-MR-BFd"/>
                     <connections>
-                        <outlet property="headerView" destination="Lub-WA-wMO" id="zzC-si-Im9"/>
                         <outlet property="tableView" destination="BwB-A0-aca" id="eYC-Ek-AsF"/>
                     </connections>
                 </viewController>
@@ -270,7 +265,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="93c-NI-hOO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="775" y="168"/>
+            <point key="canvasLocation" x="798" y="25"/>
         </scene>
         <!--한 일 목록-->
         <scene sceneID="g58-1V-oFy">
