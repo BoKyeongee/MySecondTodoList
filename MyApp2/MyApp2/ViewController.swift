@@ -6,23 +6,41 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class ViewController: UIViewController {
-    
-    
 
-    @IBOutlet weak var willButton: UIButton!
-    @IBAction func willButtonAct(_ sender: Any) {}
-    @IBAction func doneButtonAct(_ sender: Any) {}
-    @IBOutlet weak var doneButton: UIButton!
-    
+    @IBOutlet weak var mainImg: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(willButton)
+        // mainImg에 사용할 URL
+        let imageUrl = "https://i.ibb.co/QMVpNXC/todo-main-img.png"
         
+        // Alamofire를 사용한 이미지 로드
+        AF.request(imageUrl).response { response in
+            switch response.result {
+                
+                // 이미지 로드 성공 시
+                case.success(let data):
+                    print("이미지 로드 성공")
+                    DispatchQueue.main.async {
+                        self.mainImg.image = UIImage(data: data!)
+                    }
+                    
+                // 이미지 로드 실패 시
+                case.failure(let error):
+                    print("이미지 로드에 실패하여 기본 이미지를 뷰에 연결합니다")
+                    print("에러: \(error)")
+                    self.mainImg.image = UIImage(named: "basic_profile_img")
+                }
+        }
+        // view 구조
+        view.addSubview(mainImg)
+
         // navigaiton back 버튼 검정색 뒤로가기로 변경
-        let backBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: self, action: nil)
+        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
             backBarButtonItem.tintColor = .black  // 색상 변경
             self.navigationItem.backBarButtonItem = backBarButtonItem
     }

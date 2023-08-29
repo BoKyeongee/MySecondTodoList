@@ -7,12 +7,12 @@
 
 import UIKit
 
-class SegmentedControllerTableViewCell: UITableViewCell {
+class TodoViewControllerCell: UITableViewCell {
 
-    @IBOutlet weak var empty: UILabel!
-    @IBOutlet weak var isCompleted: UISwitch!
-    @IBOutlet weak var title: UILabel!
 
+    @IBOutlet weak var todo: UILabel!
+    @IBOutlet weak var checkBox: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
