@@ -27,30 +27,30 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         
         // Userdefaults 기본값 세팅
-        let defaultSettings = ["todoData": data.todoData, "고양이 돌보기": ["힘들어도 놀아주기", "궁디팡팡 해주기"], "공부": ["TIL 작성하기"]] as [String : Any]
+        let defaultSettings = ["todoData": data.todoData, "category": data.category] as [String : Any]
         defaults.register(defaults: defaultSettings)
     }
     
     // section 개수 반환
     func numberOfSections(in tableView: UITableView) -> Int {
-        let category = getDictKey()
-        return category.count
+        return defaults.array(forKey: "category")?.count ?? data.category.count
     }
     
     // section header 반환
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
                        "sectionHeader") as! CustomHeader
-        let category = getDictKey()
-        view.title.text = category[section]
+        let category = defaults.array(forKey: "category") ?? data.category
+        view.title.text = category[section] as? String
         view.button.setImage(UIImage(systemName: "plus"), for: .normal)
+        view.button.addTarget(self, action: #selector(clickPlus), for: .touchUpInside)
 
         return view
     }
 
     // section header 높이 설정
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 30
     }
     
     // cell 선택 시 편집 되도록 변경해야 함
@@ -61,12 +61,13 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     // cell 행 수 반환
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        let categories = getDictKey()
+        let categories = defaults.array(forKey: "category") ?? data.category
+        var array = [String]()
         var countArray = [Int]()
         
         for category in categories {
-            let array = getArray(category)
+            let dictionary = defaults.dictionary(forKey: "todoData") as? [String:[String]] ?? data.todoData
+            let array = dictionary[category as? String ?? data.category[section]]
             countArray.append(array?.count ?? 0)
         }
         print(countArray)
@@ -77,12 +78,13 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TodoViewControllerCell
         
-        let category = getDictKey()
-        let forKey = category[indexPath.section]
-        let taskArray = getArray(forKey)
-        print("할 일: \(taskArray)")
+        let categories = defaults.array(forKey: "category") ?? data.category
+        var category = categories[indexPath.section]
+        let todoData = defaults.dictionary(forKey: "todoData") as? [String:[String]] ?? data.todoData
         
-        cell.todo.text? = taskArray![indexPath.row] as! String
+        let cellArray = todoData[category as? String ?? data.category[indexPath.section]]
+        
+        cell.todo.text = (cellArray?[indexPath.row])! as String
         cell.checkBox.isEnabled = true
         
         return cell
@@ -100,40 +102,44 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.checkBox.isSelected.toggle()
     }
     
-    // UserDefaults array 가져오기
-    // category명이 forKey명
-    func getArray(_ forKey:String) -> [Any]? {
-        let array = defaults.array(forKey: forKey)
-        return array
+    @objc func clickPlus() {
+        print("clickPlus")
     }
     
-    // UserDefaults Dictionary 가져오기
-    // todoData or doneData만 forKey로 가능
-    func getDict() -> [String:Any]? {
-        let dictionary = defaults.dictionary(forKey: "todoData")
-        return dictionary
-    }
-    
-    // Dictionary에서 key(category)만 반환
-    func getDictKey() -> [String] {
-        var result = [String]()
-        let dictionary = defaults.dictionary(forKey: "todoData")
-        for (key, _) in dictionary! {
-            result.append(key)
-        }
-        return result
-    }
-    
-    // nil일 경우 defaults값 set
-    func setDefaults() {
-        let categories = getDictKey()
-        
-        for category in categories {
-            if getArray(category) == nil {
-                defaults.set(data.todoData[category], forKey: "category")
-            }
-        }
-    }
+//    // UserDefaults array 가져오기
+//    // category명이 forKey명
+//    func getArray(_ forKey:String) -> [Any]? {
+//        let array = defaults.array(forKey: forKey)
+//        return array
+//    }
+//
+//    // UserDefaults Dictionary 가져오기
+//    // todoData or doneData만 forKey로 가능
+//    func getDict() -> [String:Any]? {
+//        let dictionary = defaults.dictionary(forKey: "todoData")
+//        return dictionary
+//    }
+//
+//    // Dictionary에서 key(category)만 반환
+//    func getDictKey() -> [String] {
+//        var result = [String]()
+//        let dictionary = defaults.dictionary(forKey: "todoData")
+//        for (key, _) in dictionary! {
+//            result.append(key)
+//        }
+//        return result
+//    }
+//
+//    // nil일 경우 defaults값 set
+//    func setDefaults() {
+//        let categories = getDictKey()
+//
+//        for category in categories {
+//            if getArray(category) == nil {
+//                defaults.set(data.todoData[category], forKey: "category")
+//            }
+//        }
+//    }
     
 }
 extension String {
