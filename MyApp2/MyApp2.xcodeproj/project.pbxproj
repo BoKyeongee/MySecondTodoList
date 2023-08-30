@@ -14,11 +14,12 @@
 		C018A5D02A7B8EFC0005939A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C018A5CF2A7B8EFC0005939A /* Assets.xcassets */; };
 		C018A5D32A7B8EFC0005939A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C018A5D12A7B8EFC0005939A /* LaunchScreen.storyboard */; };
 		C018A5F72A7B99810005939A /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018A5F62A7B99810005939A /* TodoViewController.swift */; };
+		DC2D069B2A9F3A5F006EEBB2 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D069A2A9F3A5F006EEBB2 /* DoneViewController.swift */; };
 		DC78816C2A8515AD00FAFBD8 /* TodoViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC78816B2A8515AD00FAFBD8 /* TodoViewControllerCell.swift */; };
 		DC9FA5202A96DFAC00E4CDA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DC9FA51F2A96DFAC00E4CDA4 /* Alamofire */; };
 		DC9FA5232A96E11400E4CDA4 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = DC9FA5222A96E11400E4CDA4 /* AlamofireImage */; };
 		DC9FA5252A98766D00E4CDA4 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9FA5242A98766D00E4CDA4 /* Data.swift */; };
-		DCD4F58F2A9DE0950027B9A7 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F58E2A9DE0950027B9A7 /* CustomHeaderView.swift */; };
+		DCD4F5912A9F1A7B0027B9A7 /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F5902A9F1A7B0027B9A7 /* CustomHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +51,10 @@
 		C018A5D92A7B8EFC0005939A /* MyApp2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyApp2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C018A5E32A7B8EFC0005939A /* MyApp2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyApp2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C018A5F62A7B99810005939A /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		DC2D069A2A9F3A5F006EEBB2 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		DC78816B2A8515AD00FAFBD8 /* TodoViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewControllerCell.swift; sourceTree = "<group>"; };
 		DC9FA5242A98766D00E4CDA4 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		DCD4F58E2A9DE0950027B9A7 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
+		DCD4F5902A9F1A7B0027B9A7 /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,8 @@
 				C018A5F62A7B99810005939A /* TodoViewController.swift */,
 				DC78816B2A8515AD00FAFBD8 /* TodoViewControllerCell.swift */,
 				DC9FA5242A98766D00E4CDA4 /* Data.swift */,
-				DCD4F58E2A9DE0950027B9A7 /* CustomHeaderView.swift */,
+				DCD4F5902A9F1A7B0027B9A7 /* CustomHeader.swift */,
+				DC2D069A2A9F3A5F006EEBB2 /* DoneViewController.swift */,
 			);
 			path = MyApp2;
 			sourceTree = "<group>";
@@ -257,8 +260,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2D069B2A9F3A5F006EEBB2 /* DoneViewController.swift in Sources */,
 				C018A5F72A7B99810005939A /* TodoViewController.swift in Sources */,
-				DCD4F58F2A9DE0950027B9A7 /* CustomHeaderView.swift in Sources */,
+				DCD4F5912A9F1A7B0027B9A7 /* CustomHeader.swift in Sources */,
 				DC9FA5252A98766D00E4CDA4 /* Data.swift in Sources */,
 				C018A5CB2A7B8EFA0005939A /* ViewController.swift in Sources */,
 				DC78816C2A8515AD00FAFBD8 /* TodoViewControllerCell.swift in Sources */,

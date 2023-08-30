@@ -12,46 +12,40 @@ let defaults = UserDefaults.standard
 let data = Data.shared
 
 class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(tableView)
         
         // header of footer 등록
-        tableView.register(CustomHeaderView.self, forHeaderFooterViewReuseIdentifier: "customHeader")
-        
-        // Userdefaults 기본값 세팅
-        let defaultSettings = ["todoData": data.todoData,"doneData":data.doneData]
-        defaults.register(defaults: defaultSettings)
+        tableView.register(CustomHeader.self, forHeaderFooterViewReuseIdentifier: "sectionHeader")
         
         // 테이블뷰 delegate
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // Userdefaults 기본값 세팅
+        let defaultSettings = ["todoData": data.todoData, "고양이 돌보기": ["힘들어도 놀아주기", "궁디팡팡 해주기"], "공부": ["TIL 작성하기"]] as [String : Any]
+        defaults.register(defaults: defaultSettings)
     }
     
     // section 개수 반환
     func numberOfSections(in tableView: UITableView) -> Int {
         let category = getDictKey()
-        print("category: \(category)")
         return category.count
     }
     
     // section header 반환
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "customHeader")
-        
-        let headerView = CustomHeaderView(reuseIdentifier: "customHeader")
-        
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+                       "sectionHeader") as! CustomHeader
         let category = getDictKey()
-        
-        headerView.categoryLabel.text = category[section]
-        headerView.addBtn.isEnabled = true
-        
-        return header
+        view.title.text = category[section]
+        view.button.setImage(UIImage(systemName: "plus"), for: .normal)
+
+        return view
     }
 
     // section header 높이 설정
@@ -68,14 +62,14 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // cell 행 수 반환
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let category = getDictKey()
+        let categories = getDictKey()
         var countArray = [Int]()
         
-        for value in category {
-            let array = getArray(value)
+        for category in categories {
+            let array = getArray(category)
             countArray.append(array?.count ?? 0)
         }
-        print(countArray.count)
+        print(countArray)
         return countArray[section]
     }
     
@@ -109,7 +103,7 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // UserDefaults array 가져오기
     // category명이 forKey명
     func getArray(_ forKey:String) -> [Any]? {
-        let array = defaults.array(forKey: forKey) ?? data.doneData[forKey]
+        let array = defaults.array(forKey: forKey)
         return array
     }
     
@@ -130,16 +124,17 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return result
     }
     
-    // dummy data는 항상 set
+    // nil일 경우 defaults값 set
     func setDefaults() {
-        let category = getDictKey()
-        let dictionary = getDict()
+        let categories = getDictKey()
         
-        for value in category {
-            defaults.set(dictionary?[value], forKey: value)
+        for category in categories {
+            if getArray(category) == nil {
+                defaults.set(data.todoData[category], forKey: "category")
+            }
         }
-        return
     }
+    
 }
 extension String {
     func strikeThrough() -> NSAttributedString {

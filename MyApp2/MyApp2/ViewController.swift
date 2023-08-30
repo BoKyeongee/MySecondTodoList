@@ -11,10 +11,18 @@ import AlamofireImage
 
 class ViewController: UIViewController {
 
+    @IBAction func segueNavAct(_ sender: UIButton) {
+
+    }
     @IBOutlet weak var mainImg: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // navigaiton back 버튼 검정색 뒤로가기로 변경
+        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
+                    backBarButtonItem.tintColor = .black
+        
         // mainImg에 사용할 URL
         let imageUrl = "https://i.ibb.co/QMVpNXC/todo-main-img.png"
         
@@ -38,10 +46,5 @@ class ViewController: UIViewController {
         }
         // view 구조
         view.addSubview(mainImg)
-
-        // navigaiton back 버튼 검정색 뒤로가기로 변경
-        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
-            backBarButtonItem.tintColor = .black  // 색상 변경
-            self.navigationItem.backBarButtonItem = backBarButtonItem
     }
 }
