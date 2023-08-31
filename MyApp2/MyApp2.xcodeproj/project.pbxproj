@@ -14,10 +14,15 @@
 		C018A5D02A7B8EFC0005939A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C018A5CF2A7B8EFC0005939A /* Assets.xcassets */; };
 		C018A5D32A7B8EFC0005939A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C018A5D12A7B8EFC0005939A /* LaunchScreen.storyboard */; };
 		C018A5F72A7B99810005939A /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018A5F62A7B99810005939A /* TodoViewController.swift */; };
+		C08E8DDA2AA0B4FC00BE8B25 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E8DD92AA0B4FC00BE8B25 /* DoneTableViewCell.swift */; };
+		C08E8DDE2AA0FD6100BE8B25 /* MemoInputCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E8DDD2AA0FD6100BE8B25 /* MemoInputCollectionViewController.swift */; };
+		C08E8DE02AA101B500BE8B25 /* MemoInputCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E8DDF2AA101B500BE8B25 /* MemoInputCollectionViewCell.swift */; };
+		DC2D069B2A9F3A5F006EEBB2 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D069A2A9F3A5F006EEBB2 /* DoneViewController.swift */; };
 		DC78816C2A8515AD00FAFBD8 /* TodoViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC78816B2A8515AD00FAFBD8 /* TodoViewControllerCell.swift */; };
 		DC9FA5202A96DFAC00E4CDA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DC9FA51F2A96DFAC00E4CDA4 /* Alamofire */; };
 		DC9FA5232A96E11400E4CDA4 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = DC9FA5222A96E11400E4CDA4 /* AlamofireImage */; };
 		DC9FA5252A98766D00E4CDA4 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9FA5242A98766D00E4CDA4 /* Data.swift */; };
+		DCD4F5912A9F1A7B0027B9A7 /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F5902A9F1A7B0027B9A7 /* CustomHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +54,13 @@
 		C018A5D92A7B8EFC0005939A /* MyApp2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyApp2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C018A5E32A7B8EFC0005939A /* MyApp2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyApp2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C018A5F62A7B99810005939A /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		C08E8DD92AA0B4FC00BE8B25 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
+		C08E8DDD2AA0FD6100BE8B25 /* MemoInputCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoInputCollectionViewController.swift; sourceTree = "<group>"; };
+		C08E8DDF2AA101B500BE8B25 /* MemoInputCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoInputCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC2D069A2A9F3A5F006EEBB2 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		DC78816B2A8515AD00FAFBD8 /* TodoViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewControllerCell.swift; sourceTree = "<group>"; };
 		DC9FA5242A98766D00E4CDA4 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		DCD4F5902A9F1A7B0027B9A7 /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,11 @@
 				C018A5F62A7B99810005939A /* TodoViewController.swift */,
 				DC78816B2A8515AD00FAFBD8 /* TodoViewControllerCell.swift */,
 				DC9FA5242A98766D00E4CDA4 /* Data.swift */,
+				DCD4F5902A9F1A7B0027B9A7 /* CustomHeader.swift */,
+				DC2D069A2A9F3A5F006EEBB2 /* DoneViewController.swift */,
+				C08E8DD92AA0B4FC00BE8B25 /* DoneTableViewCell.swift */,
+				C08E8DDD2AA0FD6100BE8B25 /* MemoInputCollectionViewController.swift */,
+				C08E8DDF2AA101B500BE8B25 /* MemoInputCollectionViewCell.swift */,
 			);
 			path = MyApp2;
 			sourceTree = "<group>";
@@ -254,12 +269,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2D069B2A9F3A5F006EEBB2 /* DoneViewController.swift in Sources */,
+				C08E8DE02AA101B500BE8B25 /* MemoInputCollectionViewCell.swift in Sources */,
 				C018A5F72A7B99810005939A /* TodoViewController.swift in Sources */,
+				DCD4F5912A9F1A7B0027B9A7 /* CustomHeader.swift in Sources */,
 				DC9FA5252A98766D00E4CDA4 /* Data.swift in Sources */,
 				C018A5CB2A7B8EFA0005939A /* ViewController.swift in Sources */,
 				DC78816C2A8515AD00FAFBD8 /* TodoViewControllerCell.swift in Sources */,
 				C018A5C72A7B8EFA0005939A /* AppDelegate.swift in Sources */,
+				C08E8DDA2AA0B4FC00BE8B25 /* DoneTableViewCell.swift in Sources */,
 				C018A5C92A7B8EFA0005939A /* SceneDelegate.swift in Sources */,
+				C08E8DDE2AA0FD6100BE8B25 /* MemoInputCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,18 +1,17 @@
 //
-//  SegmentedControllerTableViewCell.swift
+//  DoneTableViewCell.swift
 //  MyApp2
 //
-//  Created by 보경 on 2023/08/10.
+//  Created by 남보경 on 2023/08/31.
 //
 
 import UIKit
 
-class TodoViewControllerCell: UITableViewCell {
+class DoneTableViewCell: UITableViewCell {
 
-
-
-    @IBOutlet var todoLabel: UILabel!
-    @IBOutlet weak var checkBox: UIButton!
+    @IBOutlet var checkedBox: UIButton!
+    @IBOutlet var doneField: UITextField!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,8 +23,5 @@ class TodoViewControllerCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    
 
 }
-
