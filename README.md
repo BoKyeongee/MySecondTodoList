@@ -2,13 +2,14 @@
 
 ## MVC Architecture
 
-Data.swift 파일에 dummy data를 생성
+Data.swift 파일에 dummy data를 생성<br>
 싱글톤 패턴으로 접근할 수 있도록 static 인스턴스 및 private init() 선언
 section의 header(task의 카테고리)는 dictionary의 key 값이고 해당 section의 cell에 해당하는 할 일들은 value값으로 `[String]`값
 딕셔너리로만 관리시에 순서가 매번 바뀌는 번거로움이 있어 배열로 따로 `category`와 `emoji`를 관리
 
 해당 Model을 TableViewController의 Dalegate와 DataSource를 위임받은 ViewController를 사용
 TableViewCell의 label과 dataSource의 section header에 설정함으로써 view와 데이터를 연결
+modal로 present되어 잠시 정보를 담는 tempData dictionary([String:String]) 형태를 제외하고 UserDefaults를 사용해서 일정한 데이터 유지
 
 ```swift
 class Data {
