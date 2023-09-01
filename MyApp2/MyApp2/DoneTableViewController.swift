@@ -29,6 +29,30 @@ class DoneViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     }
     
+    // 왼쪽으로 swipe하면 삭제
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let delete = UIContextualAction(style: .normal, title: "삭제", handler: { action, view, completionHaldler in
+            let categories = defaults.array(forKey: "category") ?? data.category
+            let category = categories[indexPath.section] as! String
+            
+            var doneData = defaults.dictionary(forKey: "doneData") as? [String:[String]] ?? data.doneData
+            
+            var cellArray = doneData[category] ?? data.doneData[category]
+            let cellData = cellArray?[indexPath.row]
+            cellArray?.remove(at: indexPath.row)
+            
+            if cellArray != nil {doneData.updateValue(cellArray!, forKey: category)}
+            else {doneData.removeValue(forKey: category )}
+                completionHaldler(true)
+            defaults.set(doneData, forKey: "doneData")
+            
+            tableView.reloadData()
+            })
+        
+            return UISwipeActionsConfiguration(actions: [delete])
+    }
+
     // section 개수 반환
     func numberOfSections(in tableView: UITableView) -> Int {
         return defaults.array(forKey: "category")?.count ?? data.category.count
@@ -42,11 +66,12 @@ class DoneViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
                        "sectionHeader") as! CustomHeader
         let category = defaults.array(forKey: "category") ?? data.category
+        let emoji = defaults.array(forKey: "emoji") ?? data.emoji
         
-        view.contentView.backgroundColor = .secondarySystemBackground
         view.title.text = category[section] as? String
-        view.button.setImage(UIImage(systemName: "plus"), for: .normal)
-        view.button.addTarget(self, action: #selector(clickPlus), for: .touchUpInside)
+        view.emoji.text = emoji[section] as? String
+        view.contentView.backgroundColor = .secondarySystemBackground
+        
         return view
     }
 
