@@ -10,7 +10,7 @@ import UIKit
 class CustomHeader: UITableViewHeaderFooterView {
 
     let title = UILabel()
-    let button = UIButton()
+    let emoji = UILabel()
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -24,22 +24,22 @@ class CustomHeader: UITableViewHeaderFooterView {
 
     func configureContents() {
         title.translatesAutoresizingMaskIntoConstraints = false
-        button.translatesAutoresizingMaskIntoConstraints = false
+        emoji.translatesAutoresizingMaskIntoConstraints = false
         
-        contentView.addSubview(button)
+        contentView.addSubview(emoji)
         contentView.addSubview(title)
         
 
         NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-            button.widthAnchor.constraint(equalToConstant: 30),
-            button.heightAnchor.constraint(equalToConstant: 30),
-            button.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            emoji.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            emoji.widthAnchor.constraint(equalToConstant: 30),
+            emoji.heightAnchor.constraint(equalToConstant: 30),
+            emoji.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
             // Center the label vertically, and use it to fill the remaining
             // space in the header view.
             title.heightAnchor.constraint(equalToConstant: 30),
-            title.leadingAnchor.constraint(equalTo: button.trailingAnchor,
+            title.leadingAnchor.constraint(equalTo: emoji.trailingAnchor,
                                            constant: 8),
             title.trailingAnchor.constraint(equalTo:
                                                 contentView.layoutMarginsGuide.trailingAnchor),

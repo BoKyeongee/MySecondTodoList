@@ -141,7 +141,7 @@
         <!--해야 할 일-->
         <scene sceneID="jpb-g2-PEQ">
             <objects>
-                <viewController storyboardIdentifier="todoViewControllerID" id="4M1-US-Ahe" customClass="TodoViewController" customModule="MyApp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="todoViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4M1-US-Ahe" customClass="TodoViewController" customModule="MyApp2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lnB-N5-Oiy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,9 +168,6 @@
                                                         <imageReference key="image" image="square.dashed" catalog="system" symbolScale="default"/>
                                                     </state>
                                                     <state key="selected" image="checkmark.square" catalog="system"/>
-                                                    <connections>
-                                                        <action selector="checkBox:" destination="4M1-US-Ahe" eventType="touchUpInside" id="vFl-2G-dE7"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="할 일 목록 입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbk-gV-qp6">
                                                     <rect key="frame" x="59" y="17" width="314" height="27"/>
@@ -201,6 +198,7 @@
                             </barButtonItem>
                             <barButtonItem image="plus" catalog="system" id="f8m-oh-JWX">
                                 <connections>
+                                    <action selector="addTask:" destination="4M1-US-Ahe" id="Lpi-PJ-Ajo"/>
                                     <segue destination="bzb-yu-jOb" kind="presentation" id="PMA-Kx-7Yh"/>
                                 </connections>
                             </barButtonItem>
@@ -393,7 +391,7 @@
         <!--Input Todo View Controller-->
         <scene sceneID="t2G-ei-td0">
             <objects>
-                <viewController id="bzb-yu-jOb" customClass="InputTodoViewController" customModule="MyApp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="inputTodoViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bzb-yu-jOb" customClass="InputTodoViewController" customModule="MyApp2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f2f-xb-hwr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

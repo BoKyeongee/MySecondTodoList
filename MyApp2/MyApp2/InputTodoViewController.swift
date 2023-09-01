@@ -7,8 +7,13 @@
 
 import UIKit
 
-class InputTodoViewController: UIViewController {
+protocol AddViewControllerDelegate: AnyObject {
+    func willDismiss()
+}
+
+class InputTodoViewController: UIViewController, UITextFieldDelegate  {
     
+    weak var delegate: AddViewControllerDelegate?
     var tempData:[String:String] = [:]
 
     @IBOutlet weak var textfield: UITextField!
@@ -33,7 +38,6 @@ class InputTodoViewController: UIViewController {
         }
         // 텍스트 필드 값을 임시 dictionary 값에 저장
         tempData.updateValue(textfield.text!, forKey: "textfield")
-        print("텍스트필드 값을 임시 딕에 저장: \(tempData["textfield"])")
         
         // 카테고리 메뉴 선택 없을 때
         if tempData["category"] == nil {
@@ -41,26 +45,27 @@ class InputTodoViewController: UIViewController {
         }
         // 카테고리 선택 값 저장
         let category = tempData["category"]!
-        print("카테고리 선택 값 저장: \(tempData["category"])")
+        
+        // 이전 tableview storyboardID instance
+        let todoViewControllerID = UIStoryboard(name: "Main", bundle: .none).instantiateViewController(identifier: "todoViewControllerID") as! TodoViewController
         
         // 카테고리는 있으나 기본 할 일 배열은 없었을 경우
         if todoData[category] == nil {
             let array:[String] = [tempData["textfield"]!]
             todoData.updateValue(array, forKey: category)
             defaults.set(todoData, forKey: "todoData")
-            print("카테고리는 있으나 기본 할 일 배열은 없었을 경우: \(todoData)")
+            self.delegate?.willDismiss()
+
+            return self.dismiss(animated: true, completion: { todoViewControllerID.tableView?.reloadData()} )
         }
-        
         // 기본 할 일 배열에 데이터 추가
-        var array = todoData[category] as? [String]
-        print(array)
-        array?.append(tempData["textfield"]!)
+        var array = todoData[category] as! [String]
+        array.append(tempData["textfield"]!)
         todoData.updateValue(array, forKey: category)
         defaults.set(todoData, forKey: "todoData")
-        print("기본 할 일 배열에 데이터 추가한 경우: \(todoData)")
-        
-        self.dismiss(animated: true)
-    }
+        self.delegate?.willDismiss()
+            return self.dismiss(animated: true, completion: { todoViewControllerID.tableView?.reloadData()} )
+        }
     
     // 카테고리 선택 메뉴 버튼
     func drawCategoryMenu() {
