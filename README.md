@@ -33,3 +33,8 @@ class Data {
 카테고리를 추가할 때 고른 이모지를 아이콘으로 설정할 수 있으며, 이것이 같이 section header에 출력되는 custom header<br>
 **4. emojiPicker packages를 이용한 카테고리 및 아이콘(이모지 이용)추가 기능**<br>
 **5. pulldown menu를 활용한 카테고리 선택 및 할 일 목록 생성**<br>
+**6. UserDefaults로 CRUD 구현**<br>
+- 할 일 추가 및 카테고리 추가 가능.<br>
+- 할 일추가 시 tableView에서 해당 데이터를 불러올 수 있고 업데이트 된 데이터를 반영할 수 있음.<br>
+- 카테고리 추가 시 sectionHeader에서 해당 데이터를 불러오고 업데이트 된 데이터를 반영할 수 있음.<br>
+- delete의 경우 cell을 우측에서 좌측으로 swipe할 경우 delete 가능.<br>
